@@ -23,9 +23,17 @@ cd steam-game-recccomendation-ml-tfidf
 pip install -r requirements.txt
 ```
 
+## 🚀 Try the Live App
+
+**[Click here to use the app online!](https://steam-game-recccomendation-ml-tfidf-w6fmxqrdssd4prz2tpehdw.streamlit.app)**
+
+No installation needed - just click and start searching for game recommendations!
+
 ## Usage
 
-Run the Streamlit app:
+### Local Installation
+
+Run the Streamlit app on your machine:
 ```bash
 streamlit run app.py
 ```

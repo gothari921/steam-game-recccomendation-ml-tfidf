@@ -20,7 +20,7 @@ A machine learning-powered recommendation engine that suggests Steam games based
 
 ### Project Links
 - **GitHub Repository**: [steam-game-recccomendation-ml-tfidf](https://github.com/gothari921/steam-game-recccomendation-ml-tfidf)
-- **Live Demo**: [Streamlit Cloud Deployment](https://steam-game-recccomendation-ml-tfidf.streamlit.app/)
+- **Live Demo**: [Streamlit Cloud App](https://steam-game-recccomendation-ml-tfidf-w6fmxqrdssd4prz2tpehdw.streamlit.app)
 
 ---
 

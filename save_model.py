@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import pickle
+import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Load data
@@ -37,20 +37,14 @@ feature_vectors = vectorizer.fit_transform(combined_features)
 # Create indices mapping
 indices = pd.Series(df.index, index=df['name']).drop_duplicates()
 
-# Save all components
-with open("model_vectorizer.pkl", "wb") as f:
-    pickle.dump(vectorizer, f)
-
-with open("model_vectors.pkl", "wb") as f:
-    pickle.dump(feature_vectors, f)
-
-with open("model_indices.pkl", "wb") as f:
-    pickle.dump(indices, f)
+# Save all components using joblib (more robust than pickle for numpy versions)
+joblib.dump(vectorizer, "model_vectorizer.joblib", compress=3)
+joblib.dump(feature_vectors, "model_vectors.joblib", compress=3)
+joblib.dump(indices, "model_indices.joblib", compress=3)
 
 # Save dataframe (only relevant columns)
 df_minimal = df[["name", "popular_tags", "developer", "publisher"]]
-with open("model_df.pkl", "wb") as f:
-    pickle.dump(df_minimal, f)
+joblib.dump(df_minimal, "model_df.joblib", compress=3)
 
 print("✅ Model saved successfully!")
-print("Files created: model_vectorizer.pkl, model_vectors.pkl, model_indices.pkl, model_df.pkl")
+print("Files created: model_vectorizer.joblib, model_vectors.joblib, model_indices.joblib, model_df.joblib")

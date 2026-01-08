@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 import numpy as np
 import difflib
@@ -29,15 +29,11 @@ st.markdown("""
 
 @st.cache_resource
 def load_models():
-    """Load all pickled model components"""
-    with open("model_vectorizer.pkl", "rb") as f:
-        vectorizer = pickle.load(f)
-    with open("model_vectors.pkl", "rb") as f:
-        feature_vectors = pickle.load(f)
-    with open("model_indices.pkl", "rb") as f:
-        indices = pickle.load(f)
-    with open("model_df.pkl", "rb") as f:
-        df = pickle.load(f)
+    """Load all joblib model components"""
+    vectorizer = joblib.load("model_vectorizer.joblib")
+    feature_vectors = joblib.load("model_vectors.joblib")
+    indices = joblib.load("model_indices.joblib")
+    df = joblib.load("model_df.joblib")
     return vectorizer, feature_vectors, indices, df
 
 def recommend_games(game_name, vectorizer, feature_vectors, indices, df, top_n=10):
